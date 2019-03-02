@@ -107,7 +107,6 @@ func Test(t *testing.T) {
 
 func mustInitDeps(t *testing.T) {
 	check := func(err error) {
-		t.Helper()
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -297,7 +296,6 @@ func patchProtos(check func(error), repoRoot string) {
 }
 
 func mustRunCommand(t *testing.T, dir string, args ...string) string {
-	t.Helper()
 	stdout := new(bytes.Buffer)
 	combined := new(bytes.Buffer)
 	cmd := exec.Command(args[0], args[1:]...)
