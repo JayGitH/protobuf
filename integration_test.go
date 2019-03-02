@@ -167,9 +167,12 @@ func mustInitDeps(t *testing.T) {
 		downloadArchive(check, workingDir, url, 1)
 
 		fmt.Printf("build %v\n", filepath.Base(workingDir))
-		mustRunCommand(t, workingDir, "./configure")
-		mustRunCommand(t, workingDir, "make")
-		mustRunCommand(t, filepath.Join(workingDir, "conformance"), "make")
+		mustRunCommand(t, repoRoot, "./build-protobuf.bash")
+		/*
+			mustRunCommand(t, workingDir, "./configure")
+			mustRunCommand(t, workingDir, "make")
+			mustRunCommand(t, filepath.Join(workingDir, "conformance"), "make")
+		*/
 	}
 	patchProtos(check, workingDir)
 	check(os.Setenv("PROTOBUF_ROOT", workingDir)) // for generate-protos
