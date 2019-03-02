@@ -1,5 +1,4 @@
-script:
-  - ./test.bash
+script: ./test.bash
 cache:
   directories:
   - .cache
